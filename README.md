@@ -1,6 +1,6 @@
 # RAG Chatbot
 
-A Retrieval-Augmented Generation (RAG) chatbot built with Laravel 12. 
+A Retrieval-Augmented Generation (RAG) chatbot built with Laravel 13. 
 Upload PDF documents and get context-aware AI answers powered by OpenAI.
 
 ---
