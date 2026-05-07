@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Local Vector Stores')
+@section('title', 'Knowledge Base Admin')
 
 @section('content')
     <div class="flex items-center justify-between mb-8">
