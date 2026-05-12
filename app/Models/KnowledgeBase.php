@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\DocumentChunk;
 
 class KnowledgeBase extends Model
 {
@@ -26,5 +28,10 @@ class KnowledgeBase extends Model
     public function isFailed(): bool
     {
         return $this->status === 'failed';
+    }
+
+    public function chunks(): HasMany
+    {
+        return $this->hasMany(DocumentChunk::class);
     }
 }

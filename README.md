@@ -144,3 +144,8 @@ Brian Mweu
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+OPENAI_API_KEY=sk-your-key-here
+OPENAI_MODEL=gpt-4o
+OPENAI_EMBED_MODEL=text-embedding-3-small
+```
