@@ -12,6 +12,7 @@ class KnowledgeBase extends Model
         'original_filename',
         'file_path',
         'status',
+        'error_message',
     ];
 
     public function isGenerating(): bool

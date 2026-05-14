@@ -59,8 +59,7 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
-                                {{-- Populated in RAG module when chunking is built --}}
-                                —
+                                {{ $knowledgeBase->chunks_count }}
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <button

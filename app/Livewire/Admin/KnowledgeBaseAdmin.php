@@ -21,7 +21,7 @@ class KnowledgeBaseAdmin extends Component
     public function render(): View
     {
         return view('livewire.admin.knowledge-base-admin', [
-            'knowledgeBases' => KnowledgeBase::query()->latest()->get(),
+            'knowledgeBases' => KnowledgeBase::query()->withCount('chunks')->latest()->get(),
         ]);
     }
 }

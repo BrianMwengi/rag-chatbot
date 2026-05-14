@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('content');
 
             // 1536 is standard for OpenAI embeddings
-            $table->vector('embedding', dimensions: 1536);
+            $table->vector('embedding', dimensions: 768);
 
             $table->timestamps();
         });
