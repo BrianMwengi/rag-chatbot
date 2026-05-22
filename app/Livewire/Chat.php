@@ -3,13 +3,13 @@
 namespace App\Livewire;
 
 use App\Ai\Agents\DocumentQA;
-use App\Models\Document;
+use App\Models\KnowledgeBase;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class Chat extends Component
 {
-    public Document $document;
+    public KnowledgeBase $knowledgeBase;
 
     /** 
      * UI State 
@@ -38,9 +38,9 @@ class Chat extends Component
     #[Validate('required|string|max:1000')]
     public string $query = '';
 
-    public function mount(Document $document)
+    public function mount(KnowledgeBase $knowledgeBase)
     {
-        $this->document = $document;
+        $this->knowledgeBase = $knowledgeBase;
     }
 
     /**
@@ -62,8 +62,8 @@ class Chat extends Component
         $this->messages[] = ['role' => 'user', 'content' => $this->query];
 
         // 2. Call the AI Agent (Using Povilas's pattern)
-        // We pass the document context ID so the AI knows what to search
-        $response = (new DocumentQA($this->document->store_id))->prompt($this->query);
+        // We pass the knowledge base context ID so the AI knows what to search
+        $response = (new DocumentQA($this->knowledgeBase->store_id))->prompt($this->query);
 
         // 3. Add AI Response to UI
         $this->messages[] = [

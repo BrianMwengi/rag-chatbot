@@ -123,4 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // Other custom config values
+    'admin_password' => env('ADMIN_PASSWORD', 'secret123'),
+
 ];
