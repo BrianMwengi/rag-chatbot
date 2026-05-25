@@ -49,3 +49,4 @@ class LocalVectorSearch implements Tool
         ];
     }
 }
+
