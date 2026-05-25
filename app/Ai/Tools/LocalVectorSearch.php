@@ -22,16 +22,14 @@ class LocalVectorSearch implements Tool
     {
         $query = $request['query'];
 
-        // Generate embedding for the user query using same model as indexing
         $queryEmbedding = Embeddings::for([$query])
             ->dimensions(768)
             ->generate(Lab::Gemini)
             ->embeddings[0];
 
-        // Search pgvector for closest matching chunks
         $chunks = DocumentChunk::query()
             ->where('knowledge_base_id', $this->knowledgeBaseId)
-            ->whereVectorSimilarTo('embedding', $queryEmbedding)
+            ->whereVectorSimilarTo('embedding', $queryEmbedding, minSimilarity: 0.1)
             ->limit(5)
             ->get();
 
@@ -40,7 +38,7 @@ class LocalVectorSearch implements Tool
         }
 
         return $chunks
-            ->map(fn($chunk) => "Context:\n" . $chunk->content)
+            ->map(fn($chunk) => "[CHUNK ID: " . $chunk->id . "]\nContext:\n" . $chunk->content)
             ->implode("\n\n");
     }
 
