@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class KnowledgeBase extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'title',
         'original_filename',
@@ -35,3 +38,5 @@ class KnowledgeBase extends Model
         return $this->hasMany(DocumentChunk::class);
     }
 }
+
+

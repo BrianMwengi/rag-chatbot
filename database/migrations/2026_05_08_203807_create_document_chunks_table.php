@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('knowledge_base_id')->constrained()->cascadeOnDelete();
             $table->text('content');
 
-            // 1536 is standard for OpenAI embeddings
+            // 768 is standard for Gemini embeddings
             $table->vector('embedding', dimensions: 768);
 
             $table->timestamps();
